@@ -1,0 +1,5 @@
+﻿  Window.cpp
+c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\window.h(12): warning C4244: 'return': conversión de 'GLint' a 'GLfloat'; posible pérdida de datos
+c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\window.h(13): warning C4244: 'return': conversión de 'GLint' a 'GLfloat'; posible pérdida de datos
+c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\window.cpp(72): warning C4715: 'Window::Initialise': no todas las rutas de acceso de control devuelven un valor
+  Project1.vcxproj -> C:\Users\angel\Documents\8vo Semestre\Lab. computación grafica\opengl\opengl\Debug\Project1.exe
