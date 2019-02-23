@@ -6,8 +6,9 @@
 class Window {
 public:
 	static float axisX, axisY, axisZ;
-
 	static float camX, camY, camZ;
+	static float colors[3];
+
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
 	int Initialise();

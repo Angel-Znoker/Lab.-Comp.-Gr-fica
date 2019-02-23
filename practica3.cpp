@@ -102,28 +102,39 @@ int main() {
 	GLuint uniformProjection = 0;
 	GLuint uniformModel = 0;
 	GLuint uniformView = 0;
+	GLuint uniformColor = 0;
 
+	glm::mat4 view;
 	glm::mat4 projection = glm::perspective(glm::radians(60.0f), mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
+	glm::vec3 color;
+
 	//Loop mientras no se cierra la ventana
 	while (!mainWindow.getShouldClose()) {
-		glm::mat4 view = glm::lookAt(glm::vec3(mainWindow.axisX, mainWindow.axisY, mainWindow.axisZ),
+		// movimiento de cámara
+		view = glm::lookAt(glm::vec3(mainWindow.axisX, mainWindow.axisY, mainWindow.axisZ),
 			glm::vec3(mainWindow.camX, mainWindow.camY, mainWindow.camZ),
 			glm::vec3(0.0f, 1.0f, 0.0f));
+
+		color = glm::vec3(mainWindow.colors[0], mainWindow.colors[1], mainWindow.colors[2]);
 		//Recibir eventos del usuario
 		glfwPollEvents();
 		//Limpiar la ventana
 		glClearColor(0.0f,0.0f,0.0f,1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Se agrega limpiar el buffer de profundidad
 		shaderList[0].useShader();
+
 		uniformModel = shaderList[0].getModelLoaction();
 		uniformProjection = shaderList[0].getProjectLocation();
 		uniformView = shaderList[0].getViewLocation();
+		uniformColor = shaderList[0].getColorLocation();
+
 		glm::mat4 model(1.0); 
 		//model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.5f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
+		glUniform3f(uniformColor, color[0], color[1], color[2]);
 		meshList[0]->RenderMesh();
 		//ejercicio 2: repetir instancias del cubo o cuardados para replicar una figura
 		glUseProgram(0);

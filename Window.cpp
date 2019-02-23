@@ -9,6 +9,8 @@ float Window::camX = 0.0f;
 float Window::camY = 0.0f;
 float Window::camZ = 0.0f;
 
+float Window::colors[3] = { 0.0f, 0.0f, 0.0f };
+
 Window::Window() {
 	width = 800;
 	height = 600;
@@ -88,76 +90,79 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	}
 
 	// formas de detectar teclas
-	if (key == GLFW_KEY_D && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisX += 0.05f;
+	if (key == GLFW_KEY_A && action == GLFW_REPEAT) {
+		axisX += 0.01f;
 	}
 
-	if (key == GLFW_KEY_A && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisX -= 0.05f;
+	if (key == GLFW_KEY_D && action == GLFW_REPEAT) {
+		axisX -= 0.01f;
 	}
 
-	if (key == GLFW_KEY_W && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisY += 0.05f;
+	if (key == GLFW_KEY_W && action == GLFW_REPEAT) {
+		axisY += 0.01f;
 	}
 
-	if (key == GLFW_KEY_S && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisY -= 0.05f;
+	if (key == GLFW_KEY_S && action == GLFW_REPEAT) {
+		axisY -= 0.01f;
 	}
 
-	if (key == GLFW_KEY_E && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisZ += 0.05f;
+	if (key == GLFW_KEY_E && action == GLFW_REPEAT) {
+		axisZ += 0.01f;
 	}
 
-	if (key == GLFW_KEY_Q && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisZ -= 0.05f;
+	if (key == GLFW_KEY_Q && action == GLFW_REPEAT) {
+		axisZ -= 0.01f;
 	}
 
-	if (key == GLFW_KEY_J && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camX += 0.1f;
+	if (key == GLFW_KEY_J && action == GLFW_REPEAT) {
+		camX += 0.05f;
 	}
 
-	if (key == GLFW_KEY_L && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camX -= 0.1f;
+	if (key == GLFW_KEY_L && action == GLFW_REPEAT) {
+		camX -= 0.05f;
 	}
 
-	if (key == GLFW_KEY_I && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camY += 0.1f;
+	if (key == GLFW_KEY_I && action == GLFW_REPEAT) {
+		camY += 0.05f;
 	}
 
-	if (key == GLFW_KEY_K && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camY -= 0.1f;
+	if (key == GLFW_KEY_K && action == GLFW_REPEAT) {
+		camY -= 0.05f;
 	}
 
-	if (key == GLFW_KEY_U && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camZ += 0.1f;
+	if (key == GLFW_KEY_U && action == GLFW_REPEAT) {
+		camZ += 0.05f;
 	}
 
-	if (key == GLFW_KEY_O && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camZ -= 0.1f;
+	if (key == GLFW_KEY_O && action == GLFW_REPEAT) {
+		camZ -= 0.05f;
 	}
 
-	/*if (key >= 0 && key < 1024) {
-		if (action == GLFW_PRESS) {
-			theWindow->keys[key] = true;
-			printf("se presiono la tecla %d'\n", key); // obtener tecla por scancode
-		}
-		else if (action == GLFW_RELEASE) {
-			theWindow->keys[key] = false;
-			printf("se solto la tecla %d'\n", key);
-		}
-	}*/
+
+	// colores
+	if (key == GLFW_KEY_R && action == GLFW_REPEAT) {
+		colors[0] += 0.05;
+	}
+
+	if (key == GLFW_KEY_F && action == GLFW_REPEAT) {
+		colors[0] -= 0.05;
+	}
+
+	if (key == GLFW_KEY_T && action == GLFW_REPEAT) {
+		colors[1] += 0.05;
+	}
+
+	if (key == GLFW_KEY_G && action == GLFW_REPEAT) {
+		colors[1] -= 0.05;
+	}
+
+	if (key == GLFW_KEY_Y && action == GLFW_REPEAT) {
+		colors[2] += 0.05;
+	}
+
+	if (key == GLFW_KEY_H && action == GLFW_REPEAT) {
+		colors[2] -= 0.05;
+	}
 }
 
 Window::~Window() {
