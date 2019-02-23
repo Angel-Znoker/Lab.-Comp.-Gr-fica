@@ -15,7 +15,6 @@
 //Dimensiones de la ventana
 const float toRadians = 3.14159265f/180.0; //grados a radianes
 Window mainWindow;
-GLfloat ejeX, ejeY;
 std::vector<Mesh*> meshList;
 std::vector<Shader>shaderList;
 //Vertex Shader
@@ -102,12 +101,12 @@ int main() {
 	GLuint uniformModel = 0;
 
 	GLuint uniformView = 0;
+	glm::mat4 projection = glm::perspective(glm::radians(60.0f), mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 	//Loop mientras no se cierra la ventana
 	while (!mainWindow.getShouldClose()) {
-		glm::mat4 view = glm::lookAt(glm::vec3(mainWindow.ejeX, mainWindow.ejeY, 1.0f),
-			glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::mat4 view = glm::lookAt(glm::vec3(mainWindow.axisX, mainWindow.axisY, mainWindow.axisZ),
+			glm::vec3(mainWindow.camX, mainWindow.camY, mainWindow.camZ),
 			glm::vec3(0.0f, 1.0f, 0.0f));
-		glm::mat4 projection = glm::perspective(glm::radians(60.0f), mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 		//Recibir eventos del usuario
 		glfwPollEvents();
 		//Limpiar la ventana
