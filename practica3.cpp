@@ -12,6 +12,7 @@
 #include"Mesh.h"
 #include"Shader.h"
 #include"Window.h"
+
 //Dimensiones de la ventana
 const float toRadians = 3.14159265f/180.0; //grados a radianes
 Window mainWindow;
@@ -97,10 +98,11 @@ int main() {
 	//CreateObject();
 	CrearCubo();
 	CreateShaders();
+	
 	GLuint uniformProjection = 0;
 	GLuint uniformModel = 0;
-
 	GLuint uniformView = 0;
+
 	glm::mat4 projection = glm::perspective(glm::radians(60.0f), mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 	//Loop mientras no se cierra la ventana
 	while (!mainWindow.getShouldClose()) {
