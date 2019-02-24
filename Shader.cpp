@@ -7,7 +7,7 @@ Shader::Shader() {
 	uniformModel = 0;
 	uniformProjection = 0;
 	uniformView = 0;
-	uniformColor = 0;
+	uniformColor = 0; // ubicación de uniform del color
 }
 
 void Shader::CreatefromString(const char* vertexCode, const char* fragmentCode) {
@@ -70,7 +70,7 @@ void Shader::CompileShader(const char* vertexCode, const char* fragmentCode) {
 	uniformModel = glGetUniformLocation(shaderID, "model");
 	uniformProjection = glGetUniformLocation(shaderID, "projection");
 	uniformView = glGetUniformLocation(shaderID, "view");
-	uniformColor = glGetUniformLocation(shaderID, "color");
+	uniformColor = glGetUniformLocation(shaderID, "color"); //	ubicación del uniform de color
 
 }
 
@@ -84,6 +84,7 @@ GLuint Shader::getModelLoaction() {
 	return uniformModel;
 }
 
+// función get del colorLocation
 GLuint Shader::getColorLocation() {
 	return uniformColor;
 }

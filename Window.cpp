@@ -1,15 +1,19 @@
 #include "Window.h"
 
-
+// inicialización del punto de enfoque
 float Window::axisX = 0.0f;
 float Window::axisY = 0.0f;
 float Window::axisZ = 1.0f;
 
+// inicializacion centro de escena
 float Window::camX = 0.0f;
 float Window::camY = 0.0f;
 float Window::camZ = 0.0f;
 
-float Window::colors[3] = { 0.0f, 0.0f, 0.0f };
+// inicializacion colores
+float Window::red = 0.0f;
+float Window::green = 0.0f;
+float Window::blue = 0.0f;
 
 Window::Window() {
 	width = 800;
@@ -90,79 +94,62 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	}
 
 	// formas de detectar teclas
-	if (key == GLFW_KEY_A && action == GLFW_REPEAT) {
-		axisX += 0.01f;
-	}
+	
+	// axisX
+	if (key == GLFW_KEY_D && action == GLFW_REPEAT)
+		axisX += 0.005f;
+	if (key == GLFW_KEY_A && action == GLFW_REPEAT)
+		axisX -= 0.005f;
+	
+	// axisY
+	if (key == GLFW_KEY_W && action == GLFW_REPEAT)
+		axisY += 0.005f;
+	if (key == GLFW_KEY_S && action == GLFW_REPEAT)
+		axisY -= 0.005f;
+	
+	// axis Z
+	if (key == GLFW_KEY_E && action == GLFW_REPEAT)
+		axisZ += 0.005f;
+	if (key == GLFW_KEY_Q && action == GLFW_REPEAT)
+		axisZ -= 0.005f;
 
-	if (key == GLFW_KEY_D && action == GLFW_REPEAT) {
-		axisX -= 0.01f;
-	}
+	// camX
+	if (key == GLFW_KEY_J && action == GLFW_REPEAT)
+		camX += 0.005f;
+	if (key == GLFW_KEY_L && action == GLFW_REPEAT)
+		camX -= 0.005f;
 
-	if (key == GLFW_KEY_W && action == GLFW_REPEAT) {
-		axisY += 0.01f;
-	}
+	// camY
+	if (key == GLFW_KEY_I && action == GLFW_REPEAT)
+		camY += 0.005f;
+	if (key == GLFW_KEY_K && action == GLFW_REPEAT)
+		camY -= 0.005f;
 
-	if (key == GLFW_KEY_S && action == GLFW_REPEAT) {
-		axisY -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_E && action == GLFW_REPEAT) {
-		axisZ += 0.01f;
-	}
-
-	if (key == GLFW_KEY_Q && action == GLFW_REPEAT) {
-		axisZ -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_J && action == GLFW_REPEAT) {
-		camX += 0.05f;
-	}
-
-	if (key == GLFW_KEY_L && action == GLFW_REPEAT) {
-		camX -= 0.05f;
-	}
-
-	if (key == GLFW_KEY_I && action == GLFW_REPEAT) {
-		camY += 0.05f;
-	}
-
-	if (key == GLFW_KEY_K && action == GLFW_REPEAT) {
-		camY -= 0.05f;
-	}
-
-	if (key == GLFW_KEY_U && action == GLFW_REPEAT) {
-		camZ += 0.05f;
-	}
-
-	if (key == GLFW_KEY_O && action == GLFW_REPEAT) {
-		camZ -= 0.05f;
-	}
-
+	// camZ
+	if (key == GLFW_KEY_U && action == GLFW_REPEAT)
+		camZ += 0.005f;
+	if (key == GLFW_KEY_O && action == GLFW_REPEAT)
+		camZ -= 0.005f;
 
 	// colores
-	if (key == GLFW_KEY_R && action == GLFW_REPEAT) {
-		colors[0] += 0.05;
-	}
 
-	if (key == GLFW_KEY_F && action == GLFW_REPEAT) {
-		colors[0] -= 0.05;
-	}
+	// Red
+	if (key == GLFW_KEY_R && action == GLFW_REPEAT)
+		red += 0.05;
+	if (key == GLFW_KEY_F && action == GLFW_REPEAT)
+		red -= 0.05;
 
-	if (key == GLFW_KEY_T && action == GLFW_REPEAT) {
-		colors[1] += 0.05;
-	}
+	// Green
+	if (key == GLFW_KEY_T && action == GLFW_REPEAT)
+		green += 0.05;
+	if (key == GLFW_KEY_G && action == GLFW_REPEAT)
+		green -= 0.05;
 
-	if (key == GLFW_KEY_G && action == GLFW_REPEAT) {
-		colors[1] -= 0.05;
-	}
-
-	if (key == GLFW_KEY_Y && action == GLFW_REPEAT) {
-		colors[2] += 0.05;
-	}
-
-	if (key == GLFW_KEY_H && action == GLFW_REPEAT) {
-		colors[2] -= 0.05;
-	}
+	// Blue
+	if (key == GLFW_KEY_Y && action == GLFW_REPEAT)
+		blue += 0.05;
+	if (key == GLFW_KEY_H && action == GLFW_REPEAT)
+		blue -= 0.05;
 }
 
 Window::~Window() {

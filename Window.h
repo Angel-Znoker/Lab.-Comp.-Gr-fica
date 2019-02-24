@@ -5,9 +5,12 @@
 
 class Window {
 public:
+	// variables para el punto de enfoque
 	static float axisX, axisY, axisZ;
+	// variables de centro de escena
 	static float camX, camY, camZ;
-	static float colors[3];
+	// colores
+	static float red, green, blue;
 
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
