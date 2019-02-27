@@ -1,13 +1,16 @@
 #include "Mesh.h"
 
-Mesh::Mesh() {
+Mesh::Mesh()
+{
 	VAO = 0;
 	VBO = 0;
 	IBO = 0;
 	indexCount = 0;
+
 }
 
-void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numberOfIndices) {
+void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numberOfIndices)
+{
 
 	indexCount = numberOfIndices;
 	glGenVertexArrays(1, &VAO); //generar 1 VAO
@@ -26,9 +29,10 @@ void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices, unsigned int num
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-}
 
-void Mesh::RenderMesh() {
+}
+void Mesh::RenderMesh()
+{
 	////////////Para dibujar desde los índices
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
@@ -37,22 +41,26 @@ void Mesh::RenderMesh() {
 	glBindVertexArray(0);
 }
 
-void Mesh::ClearMesh() {
-	if (IBO != 0) {
+void Mesh::ClearMesh()
+{
+	if (IBO != 0)
+	{
 		glDeleteBuffers(1, &IBO); ///LIMPIAR BUFFER PARAE EVITAR OCUPAR LA MEMORIA
 		IBO = 0;
 	}
-	if (VBO != 0) {
+	if (VBO != 0)
+	{
 		glDeleteBuffers(1, &VBO); ///LIMPIAR BUFFER PARAE EVITAR OCUPAR LA MEMORIA
 		VBO = 0;
 	}
-	if(VAO!=0) {
+	if(VAO!=0)
+	{
 		glDeleteVertexArrays(1, &VAO);
 		VAO = 0;
 	}
 	indexCount = 0;
 }
-
-Mesh::~Mesh() {
+Mesh::~Mesh()
+{
 	ClearMesh();
 }
