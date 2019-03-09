@@ -1,12 +1,10 @@
 #pragma once
 #include<glew.h>
-class Mesh
-{
+class Mesh {
 public:
     Mesh();
-    void CreateMesh(GLfloat *vertices);
-    void bindVAO();
-    void RenderMesh();
+	void CreateMesh(GLfloat *vertices, int t);
+    void RenderMesh(int v);
     void ClearMesh();
     ~Mesh();
     

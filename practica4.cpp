@@ -27,96 +27,114 @@ static const char* fShader = "shaders/shader.frag";
 
 void CreateObject() {
     
-    GLfloat vertices1[] = {
-        -0.5f, -0.5f,  0.0f,  1.0f, 0.0f, 0.0f,
-		 0.0f, -0.5f,  0.87f, 1.0f, 0.0f, 0.0f,
-         0.0f,  0.37f, 0.3f,  1.0f, 0.0f, 0.0f,
-        
-         0.0f, -0.5f,  0.87f, 0.0f, 1.0f, 0.0f,
-		 0.5f, -0.5f,  0.0f,  0.0f, 1.0f, 0.0f,
-         0.0f,  0.37f, 0.3f,  0.0f, 1.0f, 0.0f,
-        
-         0.5f, -0.5f,  0.0f, 0.0f, 0.0f, 1.0f,
-		-0.5f, -0.5f,  0.0f, 0.0f, 0.0f, 1.0f,
-         0.0f,  0.37f, 0.3f, 0.0f, 0.0f, 1.0f,
-        
-        -0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 0.0f,
-         0.5f, -0.5f, 0.0f,  1.0f, 1.0f, 0.0f,
-		 0.0f, -0.5f, 0.87f, 1.0f, 1.0f, 0.0f
-    };
+	GLfloat vPiramideT[] = {
+			// vértices			// colores
+		-0.5f, -0.435f, -0.3f,  1.0f, 0.0f, 0.0f,
+		 0.0f, -0.435f,  0.57f, 1.0f, 0.0f, 0.0f,
+		 0.0f,  0.435f,  0.0f,  1.0f, 0.0f, 0.0f,
 
-	GLfloat vertices2[] = {
-		-0.5f, -0.5f,  0.0f,  0.0f, 1.0f, 0.0f,
-		 0.0f, -0.5f,  0.87f, 0.0f, 1.0f, 0.0f,
-		 0.0f,  0.37f, 0.3f,  0.0f, 1.0f, 0.0f,
+		 0.0f, -0.435f,  0.57f, 0.0f, 1.0f, 0.0f,
+		 0.5f, -0.435f, -0.3f,  0.0f, 1.0f, 0.0f,
+		 0.0f,  0.435f,  0.0f,  0.0f, 1.0f, 0.0f,
 
-		 0.0f, -0.5f,  0.87f, 0.0f, 0.0f, 1.0f,
-		 0.5f, -0.5f,  0.0f,  0.0f, 0.0f, 1.0f,
-		 0.0f,  0.37f, 0.3f,  0.0f, 0.0f, 1.0f,
+		 0.5f, -0.435, -0.3f,   0.0f, 0.0f, 1.0f,
+		-0.5f, -0.435, -0.3f,   0.0f, 0.0f, 1.0f,
+		 0.0f,  0.435f, 0.0f,   0.0f, 0.0f, 1.0f,
 
-		 0.5f, -0.5f,  0.0f, 1.0f, 1.0f, 0.0f,
-		-0.5f, -0.5f,  0.0f, 1.0f, 1.0f, 0.0f,
-		 0.0f,  0.37f, 0.3f, 1.0f, 1.0f, 0.0f,
+		-0.5f, -0.435f, -0.3f,  1.0f, 1.0f, 0.0f,
+		 0.5f, -0.435f, -0.3f,  1.0f, 1.0f, 0.0f,
+		 0.0f, -0.435,  0.57f,  1.0f, 1.0f, 0.0f
+	};
 
-		-0.5f, -0.5f, 0.0f,  0.1f, 0.0f, 0.0f,
-		 0.5f, -0.5f, 0.0f,  0.1f, 0.0f, 0.0f,
-		 0.0f, -0.5f, 0.87f, 0.1f, 0.0f, 0.0f
+	GLfloat vOctaedro[] {
+			// vértices				// colores
+		 0.0f,  0.435f,  0.57f, 1.0f, 1.0f, 1.0f,
+		 0.5f,  0.435f, -0.3f,  1.0f, 1.0f, 1.0f,
+		-0.5f,  0.435f, -0.3f,  1.0f, 1.0f, 1.0f,
+
+		 0.0f,  0.435f,  0.57f, 1.0f, 1.0f, 0.f,
+		-0.5f,  0.435f, -0.3f,  1.0f, 1.0f, 0.f,
+		-0.5f, -0.435f,  0.27,  1.0f, 1.0f, 0.f,
+
+		 0.0f,  0.435f,  0.57f, 1.0f, 1.0f, 1.0f,
+		-0.5f, -0.435f,  0.27,  1.0f, 1.0f, 1.0f,
+		 0.5f, -0.435f,  0.27,  1.0f, 1.0f, 1.0f,
+
+		 0.0f,  0.435f,  0.57f, 0.0f, 0.0f, 1.0f,
+		 0.5f, -0.435f,  0.27,  0.0f, 0.0f, 1.0f,
+		 0.5f,  0.435f, -0.3f,  0.0f, 0.0f, 1.0f,
+
+		 0.0f, -0.435f, -0.6f,  1.0f, 0.0f, 0.0f,
+		 0.5f, -0.435f,  0.27,  1.0f, 0.0f, 0.0f,
+		-0.5f, -0.435f,  0.27,  1.0f, 0.0f, 0.0f,
+
+		 0.0f, -0.435f, -0.6f,  1.0f, 1.0f, 1.0f,
+		 0.5f,  0.435f, -0.3f,  1.0f, 1.0f, 1.0f,
+		 0.5f, -0.435f,  0.27,  1.0f, 1.0f, 1.0f,
+
+		 0.0f, -0.435f, -0.6f,  0.0f, 1.0f, 0.0f,
+		-0.5f,  0.435f, -0.3f,  0.0f, 1.0f, 0.0f,
+		 0.5f,  0.435f, -0.3f,  0.0f, 1.0f, 0.0f,
+
+		 0.0f, -0.435f, -0.6f,  1.0f, 1.0f, 1.0f,
+		-0.5f, -0.435f,  0.27,  1.0f, 1.0f, 1.0f,
+		-0.5f,  0.435f, -0.3f,  1.0f, 1.0f, 1.0f
 	};
 
     Mesh *obj1 = new Mesh();
-    obj1->CreateMesh(vertices1);
+    obj1->CreateMesh(vPiramideT, 72);
     meshList.push_back(obj1);
 
 	Mesh *obj2 = new Mesh();
-	obj2->CreateMesh(vertices1);
+	obj2->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj2);
 
 	Mesh *obj3 = new Mesh();
-	obj3->CreateMesh(vertices1);
+	obj3->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj3);
 
 	Mesh *obj4 = new Mesh();
-	obj4->CreateMesh(vertices1);
+	obj4->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj4);
 
 	Mesh *obj5 = new Mesh();
-	obj5->CreateMesh(vertices1);
+	obj5->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj5);
 
 	Mesh *obj6 = new Mesh();
-	obj6->CreateMesh(vertices1);
+	obj6->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj6);
 
 	Mesh *obj7 = new Mesh();
-	obj7->CreateMesh(vertices2);
+	obj7->CreateMesh(vOctaedro, 144);
 	meshList.push_back(obj7);
 
 	Mesh *obj8 = new Mesh();
-	obj8->CreateMesh(vertices2);
+	obj8->CreateMesh(vOctaedro, 144);
 	meshList.push_back(obj8);
 
 	Mesh *obj9 = new Mesh();
-	obj9->CreateMesh(vertices2);
+	obj9->CreateMesh(vOctaedro, 144);
 	meshList.push_back(obj9);
 
 	Mesh *obj10 = new Mesh();
-	obj10->CreateMesh(vertices2);
+	obj10->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj10);
 
 	Mesh *obj11 = new Mesh();
-	obj11->CreateMesh(vertices2);
+	obj11->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj11);
 
 	Mesh *obj12 = new Mesh();
-	obj12->CreateMesh(vertices2);
+	obj12->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj12);
 
 	Mesh *obj13 = new Mesh();
-	obj13->CreateMesh(vertices1);
+	obj13->CreateMesh(vOctaedro, 144);
 	meshList.push_back(obj13);
 
 	Mesh *obj14 = new Mesh();
-	obj14->CreateMesh(vertices1);
+	obj14->CreateMesh(vPiramideT, 72);
 	meshList.push_back(obj14);
 }
 
@@ -134,123 +152,133 @@ int main() {
     CreateObject();
     CreateShaders();
     
-    // Variables para cambiar los uniform del shader
-    GLuint uniformProjection = 0;
-    GLuint uniformModel = 0;
-    GLuint uniformView = 0;
+    // Variable para cambiar los uniform del shader
+	GLuint uniformFigure = 0;
     
+	// cámara fija y proyección
+	glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.0f, 0.5f), glm::vec3(0.0f, 0.0f, 0.0f),glm::vec3(0.0f, 1.0f, 0.0f));
     glm::mat4 projection = glm::perspective(glm::radians(60.0f), mainWindow.getBufferWidth()/mainWindow.getBufferHeight(), 0.1f, 100.0f);
-	//glm::mat4 projection = glm::ortho(-1, 1, -1, 1, 1, 10);
+
     //Loop mientras no se cierra la ventana
     while (!mainWindow.getShouldClose()) {
         //Recibir eventos del usuario
         glfwPollEvents();
-        
-		glm::mat4 view = glm::lookAt(glm::vec3(mainWindow.axisX, mainWindow.axisY, mainWindow.axisZ),
-			glm::vec3(mainWindow.camX, mainWindow.camY, mainWindow.camZ),
-			glm::vec3(0.0f, 1.0f, 0.0f));
+		glm::mat4 figure(1.0);
         //Limpiar la ventana
         glClearColor(0.0f,0.0f,0.0f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        shaderList[0].useShader(); // manda a llamar y renderizar el shader a la tarjeta gr‡fica
+        shaderList[0].useShader();
+
+		uniformFigure = shaderList[0].getFigureLocation();
+
+		glm::mat4 rotation(1.0);
+		// rotación global en x y Y
+        rotation = glm::rotate(rotation, mainWindow.angleY * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		rotation = glm::rotate(rotation, mainWindow.angleX * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+
+		// figuras en el primer nivel
+		glm::mat4 model(1.0);
+		model = glm::translate(model, glm::vec3(-0.1f, -0.0435f, -0.06f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		// multiplicación de matrices, la rotación global se aplica antes que las
+		// transformaciones individuales
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+        meshList[0]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, -0.0435f, -0.06f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[1]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.1f, -0.0435f, -0.06f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[2]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-0.05f, -0.0435f, 0.027f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[3]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.05f, -0.0435f, 0.027f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[4]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, -0.0435f, 0.114f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[5]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, -0.0435f, 0.057f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[6]->RenderMesh(24);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.05f, -0.0435f, -0.03f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[7]->RenderMesh(24);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-0.05f, -0.0435f, -0.03));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[8]->RenderMesh(24);
+
+		// figuras del segundo nivel
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-0.05f, 0.0435, -0.03f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[9]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.05f, 0.0435, -0.03f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[10]->RenderMesh(12);
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0435, 0.057f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[11]->RenderMesh(12);
         
-        uniformModel = shaderList[0].getModelLocation();
-        uniformProjection = shaderList[0].getProjectLocation();
-        uniformView= shaderList[0].getViewLocation();
-        
-        glm::mat4 model(1.0);
-        model = glm::translate(model, glm::vec3(-0.3f, -0.45f, -1.5f));
-        //model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
-        
-        model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-
-        glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-        glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
-        meshList[0]->RenderMesh();
-
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.45f, -1.5f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[1]->RenderMesh();
+		model = glm::translate(model, glm::vec3(0.0f, 0.0435f, 0.0));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[12]->RenderMesh(24);
 
+		// último nivel
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.3f, -0.45f, -1.5f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[2]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-0.15f, -0.45f, -1.239f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[3]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.15f, -0.45f, -1.239f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[4]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.45f, -0.978f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[5]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-0.15f, -0.45f, -1.239f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		model = glm::rotate(model,180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[6]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.15f, -0.45f, -1.239f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[7]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.45f, -0.978f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, .0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[8]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-0.15f, -0.189f, -1.41f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[9]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.15f, -0.189f, -1.41f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[10]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.189f, -1.149f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[11]->RenderMesh();
-        
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.189f, -1.149f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 1.0f, .0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[12]->RenderMesh();
-
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, 0.072f, -1.323f));
-		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		meshList[13]->RenderMesh();
+		model = glm::translate(model, glm::vec3(0.0f, 0.1305f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		figure = projection * view * rotation * model;
+		glUniformMatrix4fv(uniformFigure, 1, GL_FALSE, glm::value_ptr(figure));
+		meshList[13]->RenderMesh(12);
 
         glUseProgram(0);
         mainWindow.swapBuffers();

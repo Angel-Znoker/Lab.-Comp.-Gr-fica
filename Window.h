@@ -3,11 +3,9 @@
 #include<glew.h>
 #include<glfw3.h>
 
-class Window
-{
+class Window {
 public:
-	static float axisX, axisY, axisZ;
-	static float camX, camY, camZ;
+	static float angleY, angleX;
 
     Window();
     Window(GLint windowWidth, GLint windowHeight);

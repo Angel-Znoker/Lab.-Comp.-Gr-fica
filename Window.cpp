@@ -1,38 +1,28 @@
 #include "Window.h"
 
-float Window::axisX = 0.0f;
-float Window::axisY = 0.0f;
-float Window::axisZ = 0.5f;
+// variables para modificar los ángulos de giro
+float Window::angleX = 0.0f;
+float Window::angleY = 0.0f;
 
-float Window::camX = 0.0f;
-float Window::camY = 0.0f;
-float Window::camZ = 0.0f;
-
-Window::Window()
-{
+Window::Window() {
     width = 800;
     height = 600;
-    for (size_t i = 0; i < 1024; i++)
-    {
+    for (size_t i = 0; i < 1024; i++) {
         keys[i] = 0;
     }
 }
 
-Window::Window(GLint windowWidth, GLint windowHeight)
-{
+Window::Window(GLint windowWidth, GLint windowHeight) {
     width = windowWidth;
     height = windowHeight;
-    for (size_t i = 0; i < 1024; i++)
-    {
+    for (size_t i = 0; i < 1024; i++) {
         keys[i] = 0;
     }
 }
 
-int Window::Initialise()
-{
+int Window::Initialise() {
     //Inicializaci—n de GLFW
-    if (!glfwInit())
-    {
+    if (!glfwInit()) {
         printf("Fallo inicializar GLFW");
         glfwTerminate();
         return 1;
@@ -47,8 +37,7 @@ int Window::Initialise()
     //  Crear ventana
     mainWindow = glfwCreateWindow(width, height, "Ejercicio 1 de casa", NULL, NULL);
     
-    if (!mainWindow)
-    {
+    if (!mainWindow) {
         printf("Fallo en crearse la ventana con GLFW");
         glfwTerminate();
         return 1;
@@ -65,8 +54,7 @@ int Window::Initialise()
     //permitir nuevas extensiones
     glewExperimental = GL_TRUE;
     
-    if (glewInit() != GLEW_OK)
-    {
+    if (glewInit() != GLEW_OK) {
         printf("Fallo inicializacion de GLEW");
         glfwDestroyWindow(mainWindow);
         glfwTerminate();
@@ -84,8 +72,7 @@ int Window::Initialise()
     return 0;
 }
 
-void Window::createCallbacks()
-{
+void Window::createCallbacks() {
     glfwSetKeyCallback(mainWindow, ManejaTeclado);
 }
 
@@ -97,69 +84,26 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	}
 
 	// formas de detectar teclas
-	if (key == GLFW_KEY_D && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisX += 0.01f;
+
+	// detección de giro
+	if (key == GLFW_KEY_LEFT && action == GLFW_REPEAT) { // una sola tecla
+		angleY -= 0.5f;
 	}
 
-	if (key == GLFW_KEY_A && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisX -= 0.01f;
+	if (key == GLFW_KEY_RIGHT && action == GLFW_REPEAT) { // una sola tecla
+		angleY += 0.5f;
 	}
 
-	if (key == GLFW_KEY_W && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisY += 0.01f;
+	if (key == GLFW_KEY_UP && action == GLFW_REPEAT) { // una sola tecla
+		angleX -= 0.5f;
 	}
 
-	if (key == GLFW_KEY_S && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisY -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_E && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisZ += 0.01f;
-	}
-
-	if (key == GLFW_KEY_Q && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		axisZ -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_J && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camX += 0.01f;
-	}
-
-	if (key == GLFW_KEY_L && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camX -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_I && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camY += 0.01f;
-	}
-
-	if (key == GLFW_KEY_K && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camY -= 0.01f;
-	}
-
-	if (key == GLFW_KEY_U && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camZ += 0.01f;
-	}
-
-	if (key == GLFW_KEY_O && action == GLFW_REPEAT) { // una sola tecla
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0); // que tecla es
-		camZ -= 0.01f;
+	if (key == GLFW_KEY_DOWN && action == GLFW_REPEAT) { // una sola tecla
+		angleX += 0.5f;
 	}
 }
 
-Window::~Window()
-{
+Window::~Window() {
     glfwDestroyWindow(mainWindow);
     glfwTerminate();
 }
