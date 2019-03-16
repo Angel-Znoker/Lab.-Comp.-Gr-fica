@@ -1,7 +1,0 @@
-﻿  Shader.cpp
-  practica3.cpp
-c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\window.h(18): warning C4244: 'return': conversión de 'GLint' a 'GLfloat'; posible pérdida de datos
-c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\window.h(19): warning C4244: 'return': conversión de 'GLint' a 'GLfloat'; posible pérdida de datos
-c:\users\angel\documents\8vo semestre\lab. computación grafica\opengl\opengl\project1\practica3.cpp(17): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Generando código...
-  Project1.vcxproj -> C:\Users\angel\Documents\8vo Semestre\Lab. computación grafica\opengl\opengl\Debug\Project1.exe

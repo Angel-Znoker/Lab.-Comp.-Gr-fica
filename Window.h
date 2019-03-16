@@ -3,15 +3,9 @@
 #include<glew.h>
 #include<glfw3.h>
 
-class Window {
+class Window
+{
 public:
-	// variables para el punto de enfoque
-	static float axisX, axisY, axisZ;
-	// variables de centro de escena
-	static float camX, camY, camZ;
-	// colores
-	static float red, green, blue;
-
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
 	int Initialise();
@@ -21,11 +15,13 @@ public:
 		return  glfwWindowShouldClose(mainWindow);}
 	bool* getsKeys() { return keys; }
 	void swapBuffers() { return glfwSwapBuffers(mainWindow); }
+	GLfloat getRotacion() { return rotacion; }
 	
 	~Window();
-private:
+private: 
 	GLFWwindow *mainWindow;
 	GLint width, height;
+	GLfloat rotacion;
 	bool keys[1024];
 	GLint bufferWidth, bufferHeight;
 	void createCallbacks();
