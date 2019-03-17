@@ -3,8 +3,7 @@
 #include<glew.h>
 #include<glfw3.h>
 
-class Window
-{
+class Window {
 public:
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
@@ -16,15 +15,18 @@ public:
 	bool* getsKeys() { return keys; }
 	void swapBuffers() { return glfwSwapBuffers(mainWindow); }
 	GLfloat getRotacion() { return rotacion; }
+	GLfloat getRotacionBrazoI() { return rotBrazoI; }
+	GLfloat getRotacionBrazoD() { return rotBrazoD; }
+	GLfloat getRotacionPiernaI() { return rotPiernaI; }
+	GLfloat getRotacionPiernaD() { return rotPiernaD; }
 	
 	~Window();
 private: 
 	GLFWwindow *mainWindow;
 	GLint width, height;
-	GLfloat rotacion;
+	GLfloat rotacion, rotBrazoI, rotBrazoD, rotPiernaI, rotPiernaD;
 	bool keys[1024];
 	GLint bufferWidth, bufferHeight;
 	void createCallbacks();
 	static void ManejaTeclado(GLFWwindow* window, int key, int code, int action, int mode);
 };
-

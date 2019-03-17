@@ -1,7 +1,6 @@
 #pragma once
 #include<glew.h>
-class Mesh
-{
+class Mesh {
 public:
 	Mesh();
 	void CreateMesh(GLfloat *vertices,unsigned int *indices, unsigned int numOfVertices, unsigned int numberOfIndices);
@@ -12,6 +11,5 @@ public:
 private:
 	GLuint VAO, VBO, IBO;
 	GLsizei indexCount;
-
 };
 
