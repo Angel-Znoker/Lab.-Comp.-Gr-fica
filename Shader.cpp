@@ -2,19 +2,21 @@
 
 
 
-Shader::Shader() {
+Shader::Shader()
+{
 	shaderID = 0;
 	uniformModel = 0;
 	uniformProjection = 0;
-	uniformView = 0;
-	uniformColor = 0; // ubicación de uniform del color
+	uniformView=0;
+	uniformColor = 0;
 }
 
-void Shader::CreatefromString(const char* vertexCode, const char* fragmentCode) {
+void Shader::CreatefromString(const char* vertexCode, const char* fragmentCode)
+{
 	CompileShader(vertexCode, fragmentCode);
 }
-
-void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation) {
+void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
+{
 	std::string vertexString = ReadFile(vertexLocation);
 	std::string fragmentString = ReadFile(fragmentLocation);
 	const char* vertexCode = vertexString.c_str();
@@ -24,15 +26,18 @@ void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLoc
 
 }
 
-std::string Shader::ReadFile(const char* fileLocation) {
+std::string Shader::ReadFile(const char* fileLocation)
+{
 	std::string content;
 	std::ifstream fileStream(fileLocation, std::ios::in);
-	if (!fileStream.is_open()) {
+	if (!fileStream.is_open())
+	{
 		printf("Falló en leer el archivo: %s", fileLocation);
 		return "";
 	}
 	std::string line = "";
-	while (!fileStream.eof()) {
+	while (!fileStream.eof())
+	{
 		std::getline(fileStream, line);
 		content.append(line + "\n");
 	}
@@ -40,9 +45,13 @@ std::string Shader::ReadFile(const char* fileLocation) {
 	return content;
 }
 
-void Shader::CompileShader(const char* vertexCode, const char* fragmentCode) {
+
+
+void Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
+{
 	shaderID = glCreateProgram(); //se crea un programa
-	if (!shaderID) {
+	if (!shaderID)
+	{
 		printf("Error creando el shader");
 		return;
 	}
@@ -54,14 +63,16 @@ void Shader::CompileShader(const char* vertexCode, const char* fragmentCode) {
 	glLinkProgram(shaderID);//se linkean los shaders a la tarjeta gráfica
 						  //verificaciones y prevención de errores
 	glGetProgramiv(shaderID, GL_LINK_STATUS, &result);
-	if (!result) {
+	if (!result)
+	{
 		glGetProgramInfoLog(shaderID, sizeof(eLog), NULL, eLog);
 		printf("EL error al linkear es: %s \n", eLog);
 		return;
 	}
 	glValidateProgram(shaderID);
 	glGetProgramiv(shaderID, GL_VALIDATE_STATUS, &result);
-	if (!result) {
+	if (!result)
+	{
 		glGetProgramInfoLog(shaderID, sizeof(eLog), NULL, eLog);
 		printf("EL error al validar es: %s \n", eLog);
 		return;
@@ -69,43 +80,51 @@ void Shader::CompileShader(const char* vertexCode, const char* fragmentCode) {
 
 	uniformModel = glGetUniformLocation(shaderID, "model");
 	uniformProjection = glGetUniformLocation(shaderID, "projection");
-	uniformView = glGetUniformLocation(shaderID, "view");
-	uniformColor = glGetUniformLocation(shaderID, "color"); //	ubicación del uniform de color
+	uniformView= glGetUniformLocation(shaderID, "view");
+	uniformColor = glGetUniformLocation(shaderID, "color");
+	
 
 }
 
-GLuint Shader::getViewLocation() {
+GLuint Shader::getViewLocation()
+{
 	return uniformView;
 }
-GLuint Shader::getProjectLocation() {
+GLuint Shader::getProjectLocation()
+{
 	return uniformProjection;
 }
-GLuint Shader::getModelLoaction() {	
+GLuint Shader::getModelLoaction()
+{	
 	return uniformModel;
 }
 
-// función get del colorLocation
-GLuint Shader::getColorLocation() {
+GLuint Shader::getColorLocation()
+{
 	return uniformColor;
 }
 
-void Shader::useShader() {
+void Shader::useShader()
+{
 	glUseProgram(shaderID);
 
 }
 
-void Shader::ClearShader() {
-	if (!shaderID) { 
+void Shader::ClearShader()
+{
+	if (!shaderID)
+	{ 
 		glDeleteProgram(shaderID);//borra programa de la tarjeta gráfica
 		shaderID = 0;
 	}
 	uniformModel = 0;
 	uniformProjection = 0;
-	uniformView = 0;
+	uniformView=0;
 }
-
-void Shader:: AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) { //Función para agregar los shaders a la tarjeta gráfica
+void Shader:: AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) //Función para agregar los shaders a la tarjeta gráfica
 																			 //the Program recibe los datos de theShader
+
+{
 	GLuint theShader = glCreateShader(shaderType);//theShader es un shader que se crea de acuerdo al tipo de shader: vertex o fragment
 	const GLchar* theCode[1];
 	theCode[0] = shaderCode;//shaderCode es el texto que se le pasa a theCode
@@ -117,7 +136,8 @@ void Shader:: AddShader(GLuint theProgram, const char* shaderCode, GLenum shader
 	GLchar eLog[1024] = { 0 };
 	//verificaciones y prevención de errores
 	glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
-	if (!result) {
+	if (!result)
+	{
 		glGetProgramInfoLog(shaderID, sizeof(eLog), NULL, eLog);
 		printf("EL error al compilar el shader %d es: %s \n", shaderType, eLog);
 		return;
@@ -125,6 +145,7 @@ void Shader:: AddShader(GLuint theProgram, const char* shaderCode, GLenum shader
 	glAttachShader(theProgram, theShader);//Si no hubo problemas se asigna el shader a theProgram el cual asigna el código a la tarjeta gráfica
 }
 
-Shader::~Shader() {
+Shader::~Shader()
+{
 	ClearShader();
 }

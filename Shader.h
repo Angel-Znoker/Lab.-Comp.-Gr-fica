@@ -6,7 +6,8 @@
 
 #include<glew.h>
 
-class Shader {
+class Shader
+{
 public:
 	Shader();
 	void CreatefromString(const char* vertexCode, const char* fragmentCode);
@@ -16,12 +17,13 @@ public:
 	GLuint getModelLoaction();
 	GLuint getViewLocation();
 	GLuint getColorLocation();
+
 	void useShader();
 	void ClearShader();
 	~Shader();
 
 private: 
-	GLuint shaderID, uniformProjection, uniformModel, uniformView, uniformColor;
+	GLuint shaderID, uniformProjection, uniformModel,uniformView, uniformColor;
 	void CompileShader(const char* vertexCode, const char* fragmentCode);
 	void AddShader(GLuint theProgram, const char* ShaderCode, GLenum shaderType);
 };

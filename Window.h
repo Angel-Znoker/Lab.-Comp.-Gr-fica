@@ -3,15 +3,9 @@
 #include<glew.h>
 #include<glfw3.h>
 
-class Window {
+class Window
+{
 public:
-	// variables para el punto de enfoque
-	static float axisX, axisY, axisZ;
-	// variables de centro de escena
-	static float camX, camY, camZ;
-	// colores
-	static float red, green, blue;
-
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
 	int Initialise();
@@ -20,15 +14,29 @@ public:
 	bool getShouldClose() {
 		return  glfwWindowShouldClose(mainWindow);}
 	bool* getsKeys() { return keys; }
+	GLfloat getXChange();
+	GLfloat getYChange();
 	void swapBuffers() { return glfwSwapBuffers(mainWindow); }
-	
+	GLfloat getcodo() { return codo; }
+	GLfloat gethombro() { return hombro; }
+	GLfloat getmuneca() { return muneca; }
+	GLfloat getfalange_indice() { return falange_indice; }
+	GLfloat getfalangina_indice() { return falangina_indice; }
+	GLfloat getfalangeta_indice() { return falangeta_indice; }
 	~Window();
-private:
+private: 
 	GLFWwindow *mainWindow;
 	GLint width, height;
+	GLfloat codo,hombro,muneca, falange_indice, falangina_indice, falangeta_indice;
 	bool keys[1024];
 	GLint bufferWidth, bufferHeight;
+	GLfloat lastX;
+	GLfloat lastY;
+	GLfloat xChange;
+	GLfloat yChange;
+	bool mouseFirstMoved;
 	void createCallbacks();
 	static void ManejaTeclado(GLFWwindow* window, int key, int code, int action, int mode);
+	static void ManejaMouse(GLFWwindow* window, double xPos, double yPos);
 };
 
