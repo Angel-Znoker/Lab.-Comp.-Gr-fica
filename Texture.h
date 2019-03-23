@@ -3,8 +3,7 @@
 #include "stb_image.h"
 
 
-class Texture
-{
+class Texture {
 public:
 	Texture();
 	Texture(const char* FileLoc);
@@ -16,6 +15,5 @@ private:
 	GLuint textureID;
 	int width, height, bitDepth;
 	const char *fileLocation;
-
 };
 

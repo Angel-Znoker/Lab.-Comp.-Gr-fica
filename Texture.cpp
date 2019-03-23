@@ -2,16 +2,15 @@
 
 
 
-Texture::Texture()
-{
+Texture::Texture() {
 	textureID = 0;
 	width = 0;
 	height = 0;
 	bitDepth = 0;
 	fileLocation = 0;
 }
-Texture::Texture(const char *FileLoc)
-{
+
+Texture::Texture(const char *FileLoc) {
 	textureID = 0;
 	width = 0;
 	height = 0;
@@ -53,11 +52,9 @@ void Texture::LoadTexture() {
 	glGenerateMipmap(GL_TEXTURE_2D); */
 	glBindTexture(GL_TEXTURE_2D, 0);//para hacer un unbind de la textura
 	stbi_image_free(texData); //para liberar la información de la imagen
-
 }
 
-void Texture::ClearTexture()
-{
+void Texture::ClearTexture() {
 
 	glDeleteTextures(1, &textureID);
 	textureID = 0;
@@ -66,15 +63,14 @@ void Texture::ClearTexture()
 	bitDepth = 0;
 	fileLocation = "";
 }
-void Texture::UseTexture()
-{	//UnitTexture
+
+void Texture::UseTexture() {	//UnitTexture
 	glActiveTexture(GL_TEXTURE0); //para crear un sampler que es lo que necesitan los shaders para poder acceder a la textura: 16 a 32 texturas pueden ser declaradas
 	//si hay mas de 1 unittexture se tiene que crear una unifromvariable que haga cambio entre la unit texture a utilizar
 	glBindTexture(GL_TEXTURE_2D, textureID);
 
 }
 
-Texture::~Texture()
-{
+Texture::~Texture() {
 	ClearTexture();
 }

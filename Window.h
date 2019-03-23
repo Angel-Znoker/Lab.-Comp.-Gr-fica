@@ -3,8 +3,7 @@
 #include<glew.h>
 #include<glfw3.h>
 
-class Window
-{
+class Window {
 public:
 	Window();
 	Window(GLint windowWidth, GLint windowHeight);
@@ -39,4 +38,3 @@ private:
 	static void ManejaTeclado(GLFWwindow* window, int key, int code, int action, int mode);
 	static void ManejaMouse(GLFWwindow* window, double xPos, double yPos);
 };
-

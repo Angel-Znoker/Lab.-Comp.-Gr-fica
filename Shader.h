@@ -6,8 +6,7 @@
 
 #include<glew.h>
 
-class Shader
-{
+class Shader {
 public:
 	Shader();
 	void CreatefromString(const char* vertexCode, const char* fragmentCode);
@@ -27,4 +26,3 @@ private:
 	void CompileShader(const char* vertexCode, const char* fragmentCode);
 	void AddShader(GLuint theProgram, const char* ShaderCode, GLenum shaderType);
 };
-

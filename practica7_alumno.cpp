@@ -45,8 +45,7 @@ static const char* vShader = "shaders/shader_t.vert";
 static const char* fShader = "shaders/shader_t.frag";
 Sphere sp = Sphere(1, 20, 20);
 
-void CreateObject()
-{
+void CreateObject() {
 	unsigned int indices[] = { 
 		0,3,1,
 		1,3,2,
@@ -65,8 +64,7 @@ void CreateObject()
 	meshList.push_back(obj1);
 }
 //ejercicio 1 para hacer en clase, el cubo
-void CrearCubo()
-{
+void CrearCubo() {
 	unsigned int cubo_indices[] = {
 		// front
 		0, 1, 2,
@@ -124,19 +122,15 @@ void CrearCubo()
 	Mesh *cubo = new Mesh();
 	cubo->CreateMesh(cubo_vertices, cubo_indices, 120, 36);
 	meshList.push_back(cubo);
-
 }
 
-void CreateShaders()
-{
+void CreateShaders() {
 	Shader *shader1 = new Shader();
 	shader1->CreateFromFiles(vShader, fShader);
 	shaderList.push_back(*shader1);
 }
 
-
-int main()
-{
+int main() {
 	mainWindow = Window(800, 600);
 	mainWindow.Initialise();
 	CreateObject();
@@ -158,8 +152,7 @@ int main()
 	glm::mat4 projection = glm::perspective(45.0f, (GLfloat)mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 
 	//Loop mientras no se cierra la ventana
-	while (!mainWindow.getShouldClose())
-	{
+	while (!mainWindow.getShouldClose()) {
 		GLfloat now = glfwGetTime(); // SDL_GetPerformanceCounter();
 		deltaTime = now - lastTime; // (now - lastTime)*1000/SDL_GetPerformanceFrequency();
 		lastTime = now;

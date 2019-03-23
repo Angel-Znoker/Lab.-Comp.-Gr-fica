@@ -1,4 +1,3 @@
-
 /*
 * Sphere.cpp
 *Basado en el código creado por
@@ -28,8 +27,6 @@ Sphere::~Sphere() {
 	glDeleteVertexArrays(1, &VAO);
 
 }
-
-
 
 void Sphere::init() {
 		vertexC.resize(((slices + 1) * (stacks + 1)));
@@ -110,4 +107,3 @@ void Sphere::render() {
 	glBindVertexArray(0);
 
 }
-
